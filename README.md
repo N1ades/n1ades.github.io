@@ -1,4 +1,6 @@
 # partOfThePersonalSite
+
+Demo: [https://maxmls.github.io/partOfThePersonalSite/](https://maxmls.github.io/partOfThePersonalSite/)
  
 created by Malashin Max 2018
 
