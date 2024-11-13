@@ -4,9 +4,9 @@
     <title>Group</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="#fffff" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Fill-1-+-Group-24" sketch:type="MSLayerGroup">
-            <g id="Group-24" sketch:type="MSShapeGroup">
+            <g id="Group-24" sketch:type="MSShapeGroup" >
                 <g id="Group">
                     <path d="M105.0614,193.655 L105.0614,193.655 L143.7014,74.734 L66.4214,74.734 L105.0614,193.655 L105.0614,193.655 Z" id="Fill-4" fill="#E24329"></path>
                     <path id="Fill-6" fill="#FC6D26"></path>
