@@ -1,12 +1,17 @@
 html,
 body {
 	margin: 0;
-	min-height: 100%; 
+	min-height: 100%;
 	background-color: #1A1A1A;
 	color: white;
 	display: flex;
 	align-items: center;
-	justify-content: center
+	justify-content: center;
+}
+
+* {
+
+	cursor: none;
 }
 
 body {
@@ -33,19 +38,19 @@ body {
 	/*  */
 }
 
-.icons{
+.icons {
 	position: relative;
 	width: 250px;
 	height: 250px;
 	/* background-color: aliceblue; */
 	/* // round corners */
 	border-radius: 50%;
-	border-color: aliceblue;
-	border-width: 1px;
-	border-style: solid;
+	/* border-color: aliceblue; */
+	/* border-width: 1px; */
+	/* border-style: solid; */
 }
 
-.content{
+.content {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	text-align: center;
@@ -58,7 +63,7 @@ body {
 	/* width: 100%; */
 }
 
-.parent{
+.parent {
 	position: relative;
 }
 
@@ -69,50 +74,61 @@ body {
 	/* transform: translate(-50%, -70%); */
 }
 
-.svgLogo{
-	width:  52px;
-	height:  52px;
+.svgLogo {
+	width: 52px;
+	height: 52px;
 	background-size: 52px;
 	background-repeat: no-repeat;
-	display:inline-block;
+	display: inline-block;
 	/* margin: 21px; */
 	margin-top: 0;
 	/* margin-bottom: 13px; */
-	cursor: pointer;
+	/* cursor: pointer; */
 	position: absolute;
+	transition: scale 0.2s ease-in-out;
 }
-
+.svgLogo:hover{
+	scale: 1.1;
+}
 
 
 .gitlab {
 	background-image: url(img/GitLab_Logo.svg);
 }
-.vk{
+
+.vk {
 	background-image: url(img/vk.svg);
 }
-.github{
+
+.github {
 	background-image: url(img/Octicons-mark-github.svg);
 }
-.telegram{
+
+.telegram {
 	background-image: url(img/Telegram_logo.svg);
 }
-.email{
+
+.email {
 	background-image: url(img/email.svg);
 }
-.tumblr{
+
+.tumblr {
 	background-image: url(img/tumblr.svg);
 }
-.steam{
+
+.steam {
 	background-image: url(img/Steam_icon_logo.svg);
 }
-.mal{
+
+.mal {
 	background-image: url(img/myanimelist-svgrepo-com.svg);
 }
-.vrc{
+
+.vrc {
 	background-image: url(img/vrc.svg);
 }
-.arrow{
-	
+
+.arrow {
 	background-size: 75px;
 	width: 75px;
 	height: 75px;
@@ -121,5 +137,14 @@ body {
 	bottom: 20px;
 	left: 50%;
 	transform: translate(-50%, 0);
-	cursor: pointer;
+	/* cursor: pointer; */
+}
+
+canvas {
+	/* pointer-events: none; */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
 }

@@ -23,19 +23,19 @@ function GravityInit() {
 
 	function initGravityElements() {
 		const res = randomNonOverlappingPointsInCircle(150, gravityElems.length, 52);
-		
+
 		res.forEach((item, index) => {
-			item.x += gravityElems[index].parentElement.clientWidth / 2 - gravityElems[index].clientWidth /2
-			item.y += gravityElems[index].parentElement.clientHeight / 2 - gravityElems[index].clientHeight /2
+			item.x += gravityElems[index].parentElement.clientWidth / 2 - gravityElems[index].clientWidth / 2
+			item.y += gravityElems[index].parentElement.clientHeight / 2 - gravityElems[index].clientHeight / 2
 		})
 
 		for (var index = gravityElems.length - 1; index >= 0; index--) {
 			var element = gravityElems[index]
 			var rect = element.getBoundingClientRect()
-			element.startPosition = new Vector(res[index].x + gravityElems[index].clientWidth / 2, res[index].y  + gravityElems[index].clientHeight / 2)
+			element.startPosition = new Vector(res[index].x + gravityElems[index].clientWidth / 2, res[index].y + gravityElems[index].clientHeight / 2)
 			element.gravityOffset = new Vector()
 			element.angle = Math.random() * Math.TAU
-			
+
 			element.style.top = res[index].y + "px";
 			element.style.left = res[index].x + "px";
 		}
@@ -52,11 +52,23 @@ function GravityInit() {
 		else
 			var newVector = vectorToTarget.normalize().multiply(f)
 		element.gravityOffset = newVector
+
+
+		element.distanceToTarget = sqrDistanse;
 	}
 
 	function sealing(element) {
-		var x = Math.cos(element.angle) * sealingRadius + element.gravityOffset.x;
-		var y = Math.sin(element.angle) * sealingRadius + element.gravityOffset.y;
+		let _sealingRadius = sealingRadius;
+
+		if (element.distanceToTarget) {
+			_sealingRadius = Math.min(element.distanceToTarget / 1000, sealingRadius)
+		}
+		if (_sealingRadius < 0.5) {
+			_sealingRadius = 0
+		}
+
+		var x = Math.cos(element.angle) * _sealingRadius + element.gravityOffset.x;
+		var y = Math.sin(element.angle) * _sealingRadius + element.gravityOffset.y;
 		element.angle += speed * deltaTime;
 		if (element.angle >= Math.TAU) {
 			element.angle = element.angle % Math.TAU;
@@ -65,17 +77,17 @@ function GravityInit() {
 		//element.style.backgroundPosition = "" + x + "px," + y + "px";
 	}
 
-/**
- * Called when the user moves the mouse.
- *
- * @param {Event} e - The MouseEvent that triggered this function.
- * @private
- */
+	/**
+	 * Called when the user moves the mouse.
+	 *
+	 * @param {Event} e - The MouseEvent that triggered this function.
+	 * @private
+	 */
 	function onMouseMove(event) {
 		const rect = gravityElems[0].parentElement.getBoundingClientRect();
 		const x = event.clientX - rect.left;
 		const y = event.clientY - rect.top;
-	  
+
 		// console.log(`X: ${x}, Y: ${y}`);
 
 		for (var i = gravityElems.length - 1; i >= 0; i--) {
@@ -131,9 +143,13 @@ function TextInit() {
 		steam: "#"
 	}
 
-	var language = GetLanguage()
-	document.title = GetStr("title")
-	document.getElementsByClassName('hello')[0].innerHTML = GetStr("hello")
+	var language = GetLanguage();
+	document.title = GetStr("title");
+	const hello = document.getElementsByClassName('hello')[0];
+	if (!hello) {
+		return;
+	}
+	hello.innerHTML = GetStr("hello");
 
 	var links = document.getElementsByClassName('svgLogo')
 

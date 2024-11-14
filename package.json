@@ -1,0 +1,18 @@
+{
+  "name": "partofthepersonalsite",
+  "version": "1.0.0",
+  "description": "Demo: [https://maxmls.github.io/partOfThePersonalSite/](https://maxmls.github.io/partOfThePersonalSite/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gl-matrix": "^3.4.3"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}
