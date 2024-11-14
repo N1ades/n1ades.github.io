@@ -62,7 +62,7 @@ const fragmentShaderSource = `#version 300 es
 
         // Distortion based on mouse proximity
         float mouseDist = length(fragCoord - u_mouse * u_resolution);
-        float distortionFactor = 1.0 + 0.3 * exp(-mouseDist / 50.0);  // Adjust the divisor for stronger or weaker distortion
+        float distortionFactor = 1.0 + 0.5 * exp(-mouseDist / 50.0);  // Adjust the divisor for stronger or weaker distortion
 
         // Apply distortion to the distance
         dist *= distortionFactor;
