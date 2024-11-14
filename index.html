@@ -1,144 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circles in Circle Simulation</title>
-    <style>
-        body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        canvas { background-color: #f0f0f0; }
-    </style>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300&amp;subset=cyrillic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=cyrillic" rel="stylesheet">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="icon" type="image/png"  href="styles/img/favicon.png">
+	<title>owlet.dev</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css" media="screen" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
 </head>
 <body>
-    <canvas id="canvas" width="600" height="600"></canvas>
-    <script>
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        const width = canvas.width;
-        const height = canvas.height;
-        
-        const mainCircleRadius = 250;
-        const numCircles = 20;
-        const circleRadius = 35;
-        const friction = 0.95;  // Slows down movement over time
-        const circles = [];
-
-        // Helper functions
-        function getDistance(x1, y1, x2, y2) {
-            return Math.hypot(x2 - x1, y2 - y1);
-        }
-
-        function randomPosition() {
-            const angle = Math.random() * 2 * Math.PI;
-            const radius = Math.random() * (mainCircleRadius - circleRadius);
-            return {
-                x: width / 2 + radius * Math.cos(angle),
-                y: height / 2 + radius * Math.sin(angle)
-            };
-        }
-
-        function isIntersecting(c1, c2) {
-            return getDistance(c1.x, c1.y, c2.x, c2.y) < circleRadius * 2;
-        }
-
-        // Circle constructor
-        class Circle {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.dx =0;
-                this.dy = 0;
-            }
-
-            move() {
-                this.x += this.dx;
-                this.y += this.dy;
-
-                // Apply friction to slow down over time
-                this.dx *= friction;
-                this.dy *= friction;
-
-                // Keep circles inside the main circle
-                const distanceToCenter = getDistance(this.x, this.y, width / 2, height / 2);
-                if (distanceToCenter + circleRadius > mainCircleRadius) {
-                    const angle = Math.atan2(this.y - height / 2, this.x - width / 2);
-                    this.x = width / 2 + (mainCircleRadius - circleRadius) * Math.cos(angle);
-                    this.y = height / 2 + (mainCircleRadius - circleRadius) * Math.sin(angle);
-                    this.dx *= -1; 
-                    this.dy *= -1;
-                }
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, circleRadius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 150, 200, 0.8)';
-                ctx.fill();
-                ctx.strokeStyle = '#003366';
-                ctx.stroke();
-                ctx.closePath();
-            }
-        }
-
-        // Generate circles and place them randomly without initial intersection
-        for (let i = 0; i < numCircles; i++) {
-            let position;
-            let overlapping;
-                overlapping = false;
-                position = randomPosition();
-                const newCircle = new Circle(position.x, position.y);
-
-            
-
-            circles.push(new Circle(position.x, position.y));
-        }
-
-        function update() {
-            ctx.clearRect(0, 0, width, height);
-
-            // Draw main circle
-            ctx.beginPath();
-            ctx.arc(width / 2, height / 2, mainCircleRadius, 0, Math.PI * 2);
-            ctx.strokeStyle = '#444';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-            ctx.closePath();
-
-            let moving = false;
-            for (let i = 0; i < circles.length; i++) {
-                const circle = circles[i];
-                circle.move();
-
-                // Check for collision with other circles
-                for (let j = i + 1; j < circles.length; j++) {
-                    const other = circles[j];
-                    if (isIntersecting(circle, other)) {
-                        // Move circles apart
-                        const angle = Math.atan2(other.y - circle.y, other.x - circle.x);
-                        const overlap = circleRadius * 2 - getDistance(circle.x, circle.y, other.x, other.y);
-                        circle.dx -= overlap * Math.cos(angle) * 0.05;
-                        circle.dy -= overlap * Math.sin(angle) * 0.05;
-                        other.dx += overlap * Math.cos(angle) * 0.05;
-                        other.dy += overlap * Math.sin(angle) * 0.05;
-                    }
-                }
-
-                // Check if still moving
-                if (Math.abs(circle.dx) > 0.01 || Math.abs(circle.dy) > 0.01) {
-                    moving = true;
-                }
-
-                circle.draw();
-            }
-
-            // Continue animation while circles are moving
-            if (moving) {
-                requestAnimationFrame(update);
-            }
-        }
-
-        // Start the animation
-        update();
-    </script>
+    <canvas id="glCanvas"></canvas>
+	<div class="outer parent">
+		<!-- <div class="arrow" ></div> -->
+		<div class="center">
+			<!-- <h1 class="block hello" id="block">Hello!</h1> -->
+			<!-- <h3 class="content" >Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae</h3> -->
+			<div class="block icons" id="block">
+				<!-- social -->
+				<a href="mailto:gaucatqpc@mozmail.com" target="_blank" class="svgLogo email gravity" ></a>
+				<!-- <a href="https://www.tumblr.com/blog/makacg-blog" target="_blank" class="svgLogo tumblr gravity" ></a> -->
+				<!-- <a href="#" target="_blank" class="svgLogo vk gravity" ></a> -->
+				<a href="https://t.me/nyades" target="_blank" class="svgLogo telegram gravity" ></a>
+				<a href="https://x.com/N1ades" target="_blank" class="svgLogo x gravity" ></a>
+				<a href="https://www.twitch.tv/n1ades" target="_blank" class="svgLogo twitch gravity" ></a>
+				
+				<!-- hobby 1 -->
+				<a href="https://steamcommunity.com/id/jabkatv/" class="svgLogo steam gravity" target="_blank" ></a>
+				<a href="https://myanimelist.net/profile/MaxNekoChanUltra" class="svgLogo mal gravity" target="_blank" ></a>
+				<a href="https://vrchat.com/home/user/usr_a46bee7d-ca94-4f38-afb2-92124db89458" class="svgLogo vrc gravity" target="_blank" ></a>
+				
+				<!-- hobby 2 -->
+				<a href="https://habr.com/ru/users/Max_JK/publications/articles/" class="svgLogo habr gravity" target="_blank" ></a>
+				<a href="https://github.com/MaxMls" target="_blank" class="svgLogo github gravity" ></a>
+				
+				<!-- Professional  -->
+				<a href="https://career.habr.com/maksimmalashin" style="background-image: url(styles/img/habr-career.svg);" class="svgLogo gravity" target="_blank" ></a>
+				<a href="https://sketchfab.com/nyades" style="background-image: url(styles/img/sketchfab-logo.svg);" class="svgLogo gravity" target="_blank" ></a>
+				<a href="https://www.artstation.com/fiylgnilunl" style="background-image: url(styles/img/artstation.svg);" class="svgLogo gravity" target="_blank" ></a>
+				
+				<a href="https://ko-fi.com/nyades" style="background-image: url(styles/img/kofi.png); border-radius: 50%;" class="svgLogo gravity" target="_blank" ></a>
+				<a href="https://www.youtube.com/@n1ades" style="background-image: url('styles/img/yt.png'); border-radius: 50%;" class="svgLogo gravity" target="_blank" ></a>
+			
+				
+			</div>
+		</div>
+	</div>
 </body>
+
+<script type="module"  src="js/shader.ts"></script>
+<script type="text/javascript" src="js/Vector2D.js"></script>
+<script type="text/javascript" src="js/main.ts"></script>
 </html>

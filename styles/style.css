@@ -87,8 +87,10 @@ body {
 	position: absolute;
 	transition: scale 0.2s ease-in-out;
 }
-.svgLogo:hover{
-	scale: 1.1;
+
+.svgLogo:hover {
+	scale: 1.5;
+	z-index: 1;
 }
 
 
@@ -131,12 +133,15 @@ body {
 .x {
 	background-image: url(img/x.svg);
 }
+
 .twitch {
 	background-image: url(img/twitch-v2-svgrepo-com.svg);
 }
+
 .career {
 	background-image: url(img/habr-career.svg);
 }
+
 .habr {
 	background-image: url(img/habr.svg);
 }
