@@ -1,6 +1,6 @@
 # partOfThePersonalSite owlet.dev
 
-Demo: [https://maxmls.github.io/partOfThePersonalSite/](https://maxmls.github.io/partOfThePersonalSite/)
+Demo: [https://n1ades.github.io/](https://n1ades.github.io/)
  
 created by MaxMls 2018
 
