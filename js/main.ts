@@ -5,8 +5,8 @@ window.addEventListener("DOMContentLoaded", GravityInit)
 Math.TAU = Math.PI * 2
 Math.DEG = Math.PI / 180 // 1 градус в радианах
 
-const circleRadius = 35;
-const mainCircleRadius = 150;
+const circleRadius = 32;
+const mainCircleRadius = 160;
 const speed = 2; //скорость вращения радиан/сек
 const radius = 15000 // расстояние от курсора до обьекта при котором начинает действовать притяжение
 const friction = 0.95;
