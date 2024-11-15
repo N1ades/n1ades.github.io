@@ -1,4 +1,7 @@
 /* created by Malashin Max 2018 */
+
+import Vector from "./Vector2D";
+
 /* ksimin.ru (is currently in the web archive) */
 window.addEventListener("DOMContentLoaded", GravityInit)
 

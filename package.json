@@ -1,12 +1,13 @@
 {
-  "name": "partofthepersonalsite",
+  "name": "partOfThePersonalSite",
   "version": "1.0.0",
   "description": "Demo: [https://maxmls.github.io/partOfThePersonalSite/](https://maxmls.github.io/partOfThePersonalSite/)",
-  "main": "index.js",
+  "main": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "vite build",
-    "dev": "vite"
+    "build": "vite build --base=/partOfThePersonalSite ./src",
+    "dev": "vite",
+    "start": "vite preview --base=/partOfThePersonalSite ./src"
   },
   "author": "",
   "license": "ISC",
