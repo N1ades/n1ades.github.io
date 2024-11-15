@@ -1,4 +1,4 @@
-# partOfThePersonalSite owlet.dev
+# n1ades.github.io
 
 Demo: [https://n1ades.github.io/](https://n1ades.github.io/)
  
