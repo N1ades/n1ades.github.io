@@ -120,9 +120,9 @@ gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
     -1, 1
 ]), gl.STATIC_DRAW);
 
-const positionLocation = gl.getAttribLocation(program, "a_position");
-gl.enableVertexAttribArray(positionLocation);
-gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+const a_position = gl.getAttribLocation(program, "a_position");
+gl.enableVertexAttribArray(a_position);
+gl.vertexAttribPointer(a_position, 2, gl.FLOAT, false, 0, 0);
 
 // Set up uniforms
 const u_resolution = gl.getUniformLocation(program, "u_resolution");
@@ -143,7 +143,7 @@ const devicePixelRatio = window.devicePixelRatio || 1;
 const borderWidth = 1.0 * devicePixelRatio;  // Scale border width to device pixels
 
 gl.uniform2f(u_center, 0.5, 0.5);                   // Circle center at 50% of canvas width and height
-gl.uniform1f(u_radius, 125.0 * devicePixelRatio);    // Circle radius in device pixels
+gl.uniform1f(u_radius, 180.0 * devicePixelRatio);    // Circle radius in device pixels
 gl.uniform1f(u_mouseRadius, 33.0 * devicePixelRatio);    // Circle radius in device pixels
 gl.uniform1f(u_borderWidth, borderWidth);            // Border width in device pixels (1px at normal DPI)
 gl.uniform4f(u_circleColor, 1.0, 1.0, 1.0, 1.0);     // Circle color with transparency
