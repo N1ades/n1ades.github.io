@@ -5,7 +5,7 @@ import { htmlComponentsPlugin } from "./plugins/html-components";
 export default defineConfig({
     root: "./src",
     build: {
-      outDir: "../dist",
+      outDir: "./dist",
       emptyOutDir: true,
     },
     plugins: [htmlComponentsPlugin()],
