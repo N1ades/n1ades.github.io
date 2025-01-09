@@ -11,6 +11,9 @@ function resizeCanvasToDisplaySize(canvas) {
     const devicePixelRatio = window.devicePixelRatio || 1;
     const width = Math.floor(canvas.clientWidth * devicePixelRatio);
     const height = Math.floor(canvas.clientHeight * devicePixelRatio);
+
+    console.log(document.body.clientWidth);
+    
     if (canvas.width !== width || canvas.height !== height) {
         canvas.width = width;
         canvas.height = height;

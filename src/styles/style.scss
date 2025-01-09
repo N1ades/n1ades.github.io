@@ -8,9 +8,6 @@ html,
 .body {
 	background-color: #1A1A1A;
 	color: white;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	background-size: cover;
 	background-position: center;
 	background-image: url(img/bg-gif.webp);
@@ -167,7 +164,7 @@ html,
 }
 
 canvas {
-	/* pointer-events: none; */
+	pointer-events: none;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -192,18 +189,76 @@ canvas {
 	visibility: visible;
 	z-index: 2;
 	pointer-events: none;
-  }
-  
-  @keyframes bg-animation {
-	  0% { transform: translate(0,0) }
-	  10% { transform: translate(-5%,-5%) }
-	  20% { transform: translate(-10%,5%) }
-	  30% { transform: translate(5%,-10%) }
-	  40% { transform: translate(-5%,15%) }
-	  50% { transform: translate(-10%,5%) }
-	  60% { transform: translate(15%,0) }
-	  70% { transform: translate(0,10%) }
-	  80% { transform: translate(-15%,0) }
-	  90% { transform: translate(10%,5%) }
-	  100% { transform: translate(5%,0) }
-  }
+}
+
+@keyframes bg-animation {
+	0% {
+		transform: translate(0, 0)
+	}
+
+	10% {
+		transform: translate(-5%, -5%)
+	}
+
+	20% {
+		transform: translate(-10%, 5%)
+	}
+
+	30% {
+		transform: translate(5%, -10%)
+	}
+
+	40% {
+		transform: translate(-5%, 15%)
+	}
+
+	50% {
+		transform: translate(-10%, 5%)
+	}
+
+	60% {
+		transform: translate(15%, 0)
+	}
+
+	70% {
+		transform: translate(0, 10%)
+	}
+
+	80% {
+		transform: translate(-15%, 0)
+	}
+
+	90% {
+		transform: translate(10%, 5%)
+	}
+
+	100% {
+		transform: translate(5%, 0)
+	}
+}
+
+
+
+
+.info-grid {
+	//display: grid;
+	//grid-template-columns: 1fr 1fr 1fr ;
+	//gap: 15px;  
+	columns: 3;  
+	gap: 1rem;
+
+	& > *{
+		break-inside: avoid;
+	}
+}
+
+
+
+
+.screen{
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+

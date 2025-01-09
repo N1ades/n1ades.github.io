@@ -1,0 +1,51 @@
+<style>
+    .info-block {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .info-block_title-text {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .info-block_title-text_title {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: 23px;
+        line-height: 150%;
+        color: #fff;
+    }
+
+    .info-block_title-text_text {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 150%;
+        color: #fff;
+    }
+</style>
+
+<template>
+    <div class="info-block">
+        <div class="info-block_title-text">
+            <div class="info-block_title-text_title">
+                <slot name="title"></slot>
+            </div>
+            <div class="info-block_title-text_text">
+                <slot name="text"></slot>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+
+    
+</script>

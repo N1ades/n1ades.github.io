@@ -1,6 +1,12 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
+import { htmlComponentsPlugin } from "./plugins/html-components";
 
 
 export default defineConfig({
-  assetsInclude: ['**/*.webp']
-})
+    root: "./src",
+    build: {
+      outDir: "../dist",
+      emptyOutDir: true,
+    },
+    plugins: [htmlComponentsPlugin()],
+  });

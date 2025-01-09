@@ -1,7 +1,8 @@
 /* created by Malashin Max 2018 */
-
+import "@fontsource/roboto"; // Defaults to weight 400
 import './styles/style.scss';
 import Vector from "./Vector2D";
+import '@prof-dev/masonry'
 
 /* ksimin.ru (is currently in the web archive) */
 window.addEventListener("DOMContentLoaded", GravityInit)
