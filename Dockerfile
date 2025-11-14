@@ -28,7 +28,8 @@ RUN npm ci --only=production
 
 # Copy built assets from builder
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/src ./src
+COPY --from=builder /app/src/index.ts ./src/
+COPY --from=builder /app/src/lib ./src/lib
 
 # Expose port (adjust if needed)
 EXPOSE 3000

@@ -73,7 +73,7 @@ const accentStyle = computed(() => {
   min-height: 18rem;
   --card-accent: var(--tone-accent);
   padding: 2px;
-  border-radius: 1.5rem;
+  /* border-radius: 1.5rem; */
   background: linear-gradient(
       -30deg,
       rgba(255, 255, 255, 0.4),
@@ -89,7 +89,7 @@ const accentStyle = computed(() => {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 1.5rem;
+  /* border-radius: 1.5rem; */
   padding: 2px;
   background: linear-gradient(
     -30deg,
@@ -108,7 +108,7 @@ const accentStyle = computed(() => {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 1.5rem;
+  /* border-radius: 1.5rem; */
   border: 2px solid #ffffff;
   margin-top: -4px;
   margin-left: -4px;
@@ -126,7 +126,7 @@ const accentStyle = computed(() => {
   display: flex;
   flex-direction: column;
   background: #000000;
-  border-radius: 1.5rem;
+  /* border-radius: 1.5rem; */
   padding: 1.75rem;
   height: 100%;
 }
