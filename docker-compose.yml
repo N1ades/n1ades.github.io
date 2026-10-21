@@ -1,0 +1,20 @@
+services:
+  nyadessite:
+    container_name: nyadessite
+    hostname: nyadessite
+    restart: unless-stopped
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - default
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
