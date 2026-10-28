@@ -4,11 +4,11 @@ All my sites in one repository:
 
 | Path | What it is |
 |------|------------|
-| `/` and `/2026/` | Current 2026 site — the landing page served at [nyades.dev](https://nyades.dev/), mirrored here |
-| `/2025/` | 2025 version of the site (source in `2025-src/`, built by CI) |
-| `/2024/` | 2024 version of the site (source in `2024-src/`, built by CI) |
-| `/2020/` | 2020 version of the site (partOfThePersonalSite, static) |
-| `/2018/` | ksimin.ru built from the recovered original PHP source (`2018-src/`, commits dated by the earliest file mtimes, 2018-11-17); `IMG_App.exe` recovered from a local backup |
+| [`/`](https://n1ades.github.io/) and [`/2026/`](https://n1ades.github.io/2026/) | Current 2026 site — the landing page served at [nyades.dev](https://nyades.dev/), mirrored here |
+| [`/2025/`](https://n1ades.github.io/2025/) | 2025 version of the site (source in `2025-src/`, built by CI) |
+| [`/2024/`](https://n1ades.github.io/2024/) | 2024 version of the site (source in `2024-src/`, built by CI) |
+| [`/2020/`](https://n1ades.github.io/2020/) | 2020 version of the site (partOfThePersonalSite, static) |
+| [`/2018/`](https://n1ades.github.io/2018/) | ksimin.ru built from the recovered original PHP source (`2018-src/`, commits dated by the earliest file mtimes, 2018-11-17); `IMG_App.exe` recovered from a local backup |
 
 ## How it works
 
@@ -25,5 +25,5 @@ GitHub Actions (`.github/workflows/web.yml`) on every push to `master`:
 The original repositories were consolidated here and then removed.
 Their commit histories (all commits, dates and authors) are preserved in branches:
 
-- `archive/nyadesdev` — full history of `N1ades/nyadesdev` (2025–2026)
+- [`archive/nyadesdev`](https://github.com/N1ades/n1ades.github.io/tree/archive/nyadesdev) — full history of `N1ades/nyadesdev` (2025–2026)
 - the 2024 site history is the early history of this very repository (`2024-src/` was moved there)
