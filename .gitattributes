@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Keep the 2018 Wayback snapshot byte-identical to the archived original
+2018/** -text
