@@ -36,6 +36,19 @@ jobs:
             2024-src/package-lock.json
             2025-src/package-lock.json
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Build 2018 site (render PHP to static HTML)
+        run: |
+          mkdir -p _site/2018
+          rsync -a --exclude='*.php' --exclude='lib/' 2018-src/ _site/2018/
+          php 2018-src/index.php > _site/2018/index.html
+          # The original page references /favicon.png absolutely; adjust for the /2018/ base
+          sed -i 's#href="/favicon.png"#href="favicon.png"#' _site/2018/index.html
+
       - name: Build 2024 site
         working-directory: 2024-src
         run: |
@@ -54,7 +67,7 @@ jobs:
           # Root serves the 2026 landing; /2026 is the same copy
           cp -r 2026/. _site/
           cp -r 2026 _site/2026
-          cp -r 2018 _site/2018
+          cp 2018/IMG_App.exe _site/2018/
           cp -r 2020 _site/2020
           cp -r 2024-src/src/dist _site/2024
           cp -r 2025-src/dist _site/2025
