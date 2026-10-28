@@ -7,6 +7,7 @@ All my sites in one repository:
 | `/` and `/2026/` | Current 2026 site — the landing page served at [nyades.dev](https://nyades.dev/), mirrored here |
 | `/2025/` | 2025 version of the site (source in `2025-src/`, built by CI) |
 | `/2024/` | 2024 version of the site (source in `2024-src/`, built by CI) |
+| `/2020/` | 2020 version of the site (partOfThePersonalSite, static) |
 | `/2018/` | Snapshot of ksimin.ru from the Wayback Machine (2018-02-25) |
 
 ## How it works
