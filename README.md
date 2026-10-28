@@ -5,4 +5,4 @@ Demo: [https://n1ades.github.io/](https://n1ades.github.io/)
 created by MaxMls 2018
 
 previous version:
-ksimin.ru (is currently in the web archive)
+[ksimin.ru](https://web.archive.org/web/20180225110153/https://ksimin.ru/) (is currently in the web archive)
