@@ -3,3 +3,6 @@
 
 # Keep the 2018 Wayback snapshot byte-identical to the archived original
 2018/** -text
+
+# Keep the 2018 PHP source byte-identical to the recovered original
+2018-src/** -text
