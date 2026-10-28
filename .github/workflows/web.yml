@@ -1,8 +1,4 @@
-# Sample workflow for building and deploying a mdBook site to GitHub Pages
-#
-# To get started with mdBook see: https://rust-lang.github.io/mdBook/index.html
-#
-name: Deploy npm project to Pages
+name: Deploy site to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -25,38 +21,52 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
-  
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [22.x]
-        
     steps:
       - uses: actions/checkout@v4
 
-
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-        
-      - name: Install node modules
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            2024-src/package-lock.json
+            2025-src/package-lock.json
+
+      - name: Build 2024 site
+        working-directory: 2024-src
         run: |
-          npm i
+          npm ci || npm i
+          npm run build -- --base=/2024/
+
+      - name: Build 2025 site
+        working-directory: 2025-src
+        run: |
+          npm ci || npm i
+          npm run build -- --base=/2025/
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          # Root serves the 2026 landing; /2026 is the same copy
+          cp -r 2026/. _site/
+          cp -r 2026 _site/2026
+          cp -r 2018 _site/2018
+          cp -r 2024-src/src/dist _site/2024
+          cp -r 2025-src/dist _site/2025
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Build with npm
-        run: npm run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./src/dist
+          path: ./_site
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages
