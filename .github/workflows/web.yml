@@ -55,6 +55,7 @@ jobs:
           cp -r 2026/. _site/
           cp -r 2026 _site/2026
           cp -r 2018 _site/2018
+          cp -r 2020 _site/2020
           cp -r 2024-src/src/dist _site/2024
           cp -r 2025-src/dist _site/2025
 
